@@ -2,6 +2,7 @@
   <div class="form">
     <input type="text" :value="inputValue" @input="inputValue = $event.target.value">
     <FirstDemo text="Отправить"></FirstDemo>
+    <span></span>
   </div>
 </template>
 
@@ -12,16 +13,6 @@ const props = defineProps({
   value: String
 })
 
-const emit = defineEmits(['change'])
-
-const inputValue = computed({
-  get() {
-    return props.value
-  },
-  set(value) {
-    emit('change', value)
-  }
-})
 </script>
 
 <style scoped>

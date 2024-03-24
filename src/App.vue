@@ -12,7 +12,9 @@
 
 <!--  <SliderImage></SliderImage>-->
 
-    <AddCards></AddCards>
+<!--    <AddCards></AddCards>-->
+<!--  <InputMailForm></InputMailForm>-->
+  <PrintMail></PrintMail>
 
 </template>
 
@@ -23,6 +25,9 @@
 import AddImage from "@/components/AddImage.vue";
 import SliderImage from "@/components/SliderImage.vue";
 import AddCards from "@/components/AddCards.vue";
+import PrintEmail from "@/components/InputMailForm.vue";
+// import InputMailForm from "@/components/InputMailForm.vue";
+import PrintMail from "@/components/PrintMail.vue";
 </script>
 
 <style>
