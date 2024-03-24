@@ -1,26 +1,39 @@
 <template>
-  <InputMailForm :value="defaultMail"></InputMailForm>
-  {{ defaultMail }}
-  <div class="form">
-    <h3></h3>
+  <div>
+    <InputMailForm @send="updateMail"></InputMailForm>
+    <div class="form">
+      <h3>Введен почта {{ mailValue }} </h3>
+    </div>
   </div>
 </template>
 
 <script>
-import {ref} from "vue";
 import InputMailForm from "@/components/InputMailForm.vue";
-import {defineComponent} from "vue";
+import { ref } from "vue";
 
-export default defineComponent({
-  components: {InputMailForm}
-})
+export default {
+  components: {
+    InputMailForm
+  },
+  setup() {
+    const mailValue = ref(''); // Переменная для хранения значения почты
 
+    const updateMail = (value) => {
+      // Обновляем значение mailValue при получении события 'send' от InputMailForm.vue
+      mailValue.value = value;
+      console.log(mailValue.value); // Проверяем, обновилось ли значение mailValue
+    };
 
-const defaultMail = ref('John')
+    return {
+      mailValue,
+      updateMail
+    };
+  }
+}
 </script>
 
 <style scoped>
-.form{
+.form {
   display: flex;
   border: 1px solid #282828;
   max-width: fit-content;
