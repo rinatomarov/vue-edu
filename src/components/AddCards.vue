@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="cardPrice">
-    <span>Итого вышло на сумму {{cardPrice}}</span>
+    <span>Итого вышло на сумму {{totalPriceCard}}</span>
   </div>
 </template>
 <script setup>
@@ -19,15 +19,18 @@ const cardsArray = ([
   {name: "Airpods Max", price: 345000},
   {name: "Macbook 14 Max", price: 1230000}
 ])
-let cardMassiv = []
+let totalPrice = ref([])
 //c помо reduce
 let cardPrice = ref(0)
-
-const addPrice =(price) => {
-  cardPrice.value += price;
-  console.log(cardPrice)
-  return  cardPrice
+const addPrice = (price) => {
+  totalPrice.value.push(price)
+  console.log(totalPrice)
+  // return  totalPrice
 }
+const totalPriceCard = computed(() => {
+  let sum = totalPrice.value.reduce((acc, val) => acc + val, 0)
+  return sum
+})
 
 </script>
 
