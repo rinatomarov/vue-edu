@@ -14,8 +14,8 @@
 
 <!--    <AddCards></AddCards>-->
 <!--  <InputMailForm></InputMailForm>-->
-  <PrintMail></PrintMail>
-
+<!--  <PrintMail></PrintMail>-->
+<PasswordValidation></PasswordValidation>
 </template>
 
 <script setup>
@@ -28,6 +28,7 @@ import AddCards from "@/components/AddCards.vue";
 import PrintEmail from "@/components/InputMailForm.vue";
 // import InputMailForm from "@/components/InputMailForm.vue";
 import PrintMail from "@/components/PrintMail.vue";
+import PasswordValidation from "@/components/PasswordValidation.vue";
 </script>
 
 <style>
