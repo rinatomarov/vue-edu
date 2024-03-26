@@ -14,8 +14,8 @@
 
 <!--    <AddCards></AddCards>-->
 <!--  <InputMailForm></InputMailForm>-->
-  <PrintMail></PrintMail>
-<!--<PasswordValidation></PasswordValidation>-->
+<!--  <PrintMail></PrintMail>-->
+<PasswordValidation></PasswordValidation>
 </template>
 
 <script setup>

@@ -1,19 +1,19 @@
 <template>
   <div class="form">
-    <input type="password" id="pwd"  placeholder="Пароль">
-    <ul><span> Пароль не подходит к критериям:</span>
-      <li>Пароль должен состоять из минимум 8 символов</li>
-      <li>Пароль должен включать хотя бы одну цифру</li>
-    </ul>
-    <label for="pwd-repeat">
-      Repeat password
-    </label>
-    <input type="password" id="pwd-repeat"  placeholder="Пароль">
+    <input type="password"  v-model="passWord" placeholder="Пароль">
+    <p>{{passWord}}</p>
+      <li v-if="passWord.length<=8">Пароль должен состоять из минимум 8 символов</li>
+      <li v-if="!containsNumber.test(passWord)">Пароль должен включать хотя бы одну цифру</li>
+    <input type="password" v-model="passWord2" placeholder="Повторите пароль">
+    <span v-show="passWord!==passWord2">Пароли не идентичные</span>
   </div>
 </template>
 
 <script setup>
-
+import {ref} from "vue";
+const passWord = ref('')
+const passWord2 = ref('')
+const containsNumber = /\d+/
 </script>
 
 <style scoped>
@@ -27,11 +27,12 @@
   border-radius: 12px;
   gap: 20px;
 }
-ul  {
+li  {
   color: red;
 }
 input{
   height: 40px;
   border-radius: 8px;
+  padding-left: 28px;
 }
 </style>
