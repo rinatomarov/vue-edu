@@ -1,29 +1,24 @@
 <template>
   <div class="form">
-    <input type="text" v-model="inputValue">
-    <button @click="send">Отправить</button>
-<!--    <span>{{ inputValue }}</span>-->
+    <input type="text" v-model="mail" placeholder="Прошу ввести вашу почту">
+    <button v-on:click="send">Отправить</button>
+<!--    <span>{{ mail }}</span>-->
   </div>
 </template>
 
 <script>
-import {ref, defineComponent} from "vue";
-
-export default defineComponent({
-  setup(_, {emit}) { // Получаем emit из контекста setup
-    const inputValue = ref('');
-
-    const send = () => {
-      // Вызываем событие 'send' и передаем значение inputValue
-      emit('send', inputValue.value);
-    };
-
+export default {
+  data(){
     return {
-      inputValue,
-      send
-    };
+      mail:'@gmail.com'
+    }
+  },
+  methods:{
+    send(){
+      this.$emit('receiveMail',this.mail)
+    }
   }
-});
+}
 </script>
 
 <style scoped>

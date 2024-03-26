@@ -1,33 +1,25 @@
 <template>
-  <div>
-    <InputMailForm @send="updateMail"></InputMailForm>
-    <div class="form">
-      <h3>Введен почта {{ mailValue }} </h3>
-    </div>
+    <InputMailForm v-on:receiveMail="receiveMailEmit"></InputMailForm>
+  <div class="form">
+    <h3>Введен почта {{mail}}</h3>
   </div>
 </template>
 
 <script>
-import InputMailForm from "@/components/InputMailForm.vue";
-import { ref } from "vue";
-
+import InputMailForm from '@/components/InputMailForm.vue'
+import { computed, ref } from "vue";
+import {defineComponent} from "vue";
 export default {
-  components: {
-    InputMailForm
-  },
-  setup() {
-    const mailValue = ref(''); // Переменная для хранения значения почты
-
-    const updateMail = (value) => {
-      // Обновляем значение mailValue при получении события 'send' от InputMailForm.vue
-      mailValue.value = value;
-      console.log(mailValue.value); // Проверяем, обновилось ли значение mailValue
-    };
-
+  components:{InputMailForm},
+  data(){
     return {
-      mailValue,
-      updateMail
-    };
+      mail:''
+    }
+  },
+  methods:{
+    receiveMailEmit(mail){
+      this.mail = mail
+    }
   }
 }
 </script>
