@@ -1,21 +1,33 @@
 <template>
-  <!--  <Counter></Counter>-->
-  <!--  <Quotations></Quotations>-->
-  <!--  <Counter></Counter>-->
-  <!--  <p>Hello World</p>-->
+<!--    <Counter></Counter>-->
+<!--    <Quotations></Quotations>-->
+<!--    <Counter></Counter>-->
+<!--    <p>Hello World</p>-->
 
-  <!--  <FirstDemo text="Нажми меня"></FirstDemo>-->
-  <!--  <FirstDemo text="Press me"></FirstDemo>-->
-  <!--  <FirstDemo text="Submit"></FirstDemo>-->
+<!--    <FirstDemo text="Нажми меня"></FirstDemo>-->
+<!--    <FirstDemo text="Press me"></FirstDemo>-->
+<!--    <FirstDemo text="Submit"></FirstDemo>-->
 
-  <!--  <AddImage></AddImage>-->
+<!--    <AddImage></AddImage>-->
 
 <!--  <SliderImage></SliderImage>-->
 
 <!--    <AddCards></AddCards>-->
 <!--  <InputMailForm></InputMailForm>-->
 <!--  <PrintMail></PrintMail>-->
-<PasswordValidation></PasswordValidation>
+  <!--<PasswordValidation></PasswordValidation>-->
+    <ModalSignPage>
+      <template #header>
+          <p>Прошу ввести ваши регистрационные данные:</p>
+      </template>
+      <template>
+      </template>
+      <template #footer>
+        <button>Перейти в сайт</button>
+      </template>
+    </ModalSignPage>
+  <h1>Login : {{login}}</h1>
+  <h1>PassWord : {{passWord}}</h1>
 </template>
 
 <script setup>
@@ -30,6 +42,9 @@ import AddCards from "@/components/AddCards.vue";
 import PrintMail from "@/components/PrintMail.vue";
 import PasswordValidation from "@/components/PasswordValidation.vue";
 import { computed, ref } from "vue";
+import ModalSignPage from "@/components/ModalSignPage.vue";
+
+
 </script>
 
 <style>
