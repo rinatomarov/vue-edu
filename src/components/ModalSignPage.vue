@@ -6,8 +6,8 @@
         <slot name="header"></slot>
       </div>
       <div class="body">
-        <input type="text" v-model="login" placeholder="Введите логин">
-        <input type="password" v-model="passWord" placeholder="Введите пароль">
+        <input type="text" v-model="login" placeholder="Введите логин" @input="emit('update:login', $event.target.value )">
+        <input type="password" v-model="passWord" placeholder="Введите пароль" @input="emit('update:passWord', $event.target.value )">
       </div>
       <div class="footer">
         <slot name="footer"></slot>
@@ -22,6 +22,12 @@ import {ref} from "vue";
 
 const login = ref('')
 const passWord = ref('')
+
+const emit = defineEmits(['update:login'])
+
+defineProps({
+  value: String
+})
 </script>
 
 <style scoped>

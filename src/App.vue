@@ -16,7 +16,7 @@
 <!--  <InputMailForm></InputMailForm>-->
 <!--  <PrintMail></PrintMail>-->
   <!--<PasswordValidation></PasswordValidation>-->
-    <ModalSignPage>
+    <ModalSignPage v-model:login="login" v-model:passWord="passWord" >
       <template #header>
           <p>Прошу ввести ваши регистрационные данные:</p>
       </template>
@@ -43,7 +43,8 @@ import PrintMail from "@/components/PrintMail.vue";
 import PasswordValidation from "@/components/PasswordValidation.vue";
 import { computed, ref } from "vue";
 import ModalSignPage from "@/components/ModalSignPage.vue";
-
+const login = ref('')
+const passWord = ref('')
 
 </script>
 
