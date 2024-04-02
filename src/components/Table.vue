@@ -15,3 +15,7 @@ defineProps({
   items: Array
 })
 </script>
+
+
+<style scoped>
+</style>
