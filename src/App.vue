@@ -1,63 +1,42 @@
 <template>
-  <CharacterData :items="characterData">
-    <template #price="{ cell }">
-<!--      <span :style="`color: ${priceColor(cell)}`">-->
-<!--        {{ cell }}-->
-<!--      </span>-->
-    </template>
+  <router-view></router-view>
+  <h1>App Vue Application</h1>
+  <a href="/">HOME</a>
+  <br>
+  <a href="/about">ABOUT</a>
+  <br>
+  <a href="/router">ROUTER</a>
+  <br>
+  <br>
+  <!-- SPA - single page application -->
 
-    <template #default="{ cell }">
-<!--      <p>default slot - {{ cell }}</p>-->
-    </template>
-  </CharacterData>
+  <router-link to="/">HOME</router-link>
+  <br>
+  <router-link to="/about">ABOUT</router-link>
+  <br>
+  <router-link to="/router">ROUTER</router-link>
+  <br>
+  <br>
 
+  <button @click="redirect('/')">Go Home</button>
+  <button @click="redirect('/router')">Go Router</button>
+  <button @click="redirect('/about')">Go About</button>
+  <br>
+  <br>
+<!--<AboutMe></AboutMe>-->
 </template>
 
 <script setup>
-import {ref, watch} from "vue";
-import Table from "@/components/Table.vue";
-import CharacterData from "@/components/CharacterData.vue";
-import AddCards from "@/components/AddCards.vue";
-const priceColor = (price) => {
-  if(price < 2001) return 'green'
-  else if(price < 5001) return 'yellow'
-
-  return  'red'
+import AboutMe from "@/views/AboutMe.vue";
+import { useRouter } from "vue-router";
+const router = useRouter()
+const redirect = (path) => {
+  console.log(path)
+  router.push(path)
+  // window.location.href = path
 }
 
-const items = [
-  {
-    name: 'Imac',
-    price: 2000,
-    description: 'Desktop'
-  },
-  {
-    name: 'MacBook',
-    price: 3000,
-    description: 'Laptop'
-  },
-  {
-    name: 'Iphone',
-    price: 7000,
-    description: 'Phone'
-  },
-]
-
-const characterData = [
-  {
-    image:'https://cdn-bgp.bluestacks.com/BGP/ru/gametiles_com.mojang.minecraftpe.jpg',
-    name:'John Johns',
-    profession:'Frontend dev'
-  },
-  {
-    image:'https://awsimages.detik.net.id/community/media/visual/2024/02/12/satoru-gojo-dalam-jujutsu-kaisen_43.jpeg?w=1200',
-    name:'Satoru Gojo',
-    profession:'Strongest'
-  },
-  {
-    image:'https://sputnik.kz/img/214/27/2142759_385:0:1025:704_1920x0_80_0_0_763ba982862caa49edc9d57d10eef2f2.jpg',
-    name:'Kairat Nurtas',
-    profession:'Kazakh Singer'
-  }
-]
 </script>
+<style scoped>
+
+</style>
